@@ -3,7 +3,11 @@
 
 <@common.page>
     <div>
+        <a href="/user">Список преподавателей</a>
+    </div>
+    <div>
         <p>Hello World!</p>
     </div>
+
     <@form.logout></@form.logout>
 </@common.page>

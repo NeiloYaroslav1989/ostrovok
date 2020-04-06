@@ -1,0 +1,55 @@
+html {
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    min-height: 100%;
+    background: #fff;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    flex: auto;
+}
+
+.header {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-end;
+    justify-content: space-between;
+    width: 100%;
+    max-width: 960px;
+    min-width: 430px;
+    margin: 0 auto 30px;
+    padding: 10px 0 10px;
+    box-sizing: border-box;
+}
+
+.logo {
+    display: flex;
+    flex: none;
+    align-items: center;
+    width: 150px;
+    height: 40px;
+    background: url("../img/logo_mini_ostrovok.png") center no-repeat;
+    background-size: 150px;
+}
+
+.nav {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.nav-item {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100px;
+    height: 100%;
+    text-decoration: none;
+    text-align: center;
+}
+
+
+
+
