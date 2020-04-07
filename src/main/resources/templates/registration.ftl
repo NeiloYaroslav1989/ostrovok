@@ -2,11 +2,11 @@
 <#import "part/form.ftl" as form>
 
 <@common.page>
-    <p>Регистрация нового пользователя</p>
-
+    <h1 class="page-title">Регистрация нового пользователя</h1>
     <#if message??>
         ${message}
-        <#else>
+    <#else>
     </#if>
     <@form.registerForm></@form.registerForm>
+
 </@common.page>

@@ -3,10 +3,5 @@
 
 <@common.page>
     <@form.loginForm></@form.loginForm>
-    <div >
-        <a href="/registration">Зарегистрироваться</a>
-    </div>
-    <div>
-        <a href="/index">Назад</a>
-    </div>
+    <a href="/index">Назад</a>
 </@common.page>

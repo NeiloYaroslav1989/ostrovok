@@ -1,6 +1,6 @@
 Форма для входа
 <#macro loginForm>
-    <div class="login">
+    <div class="form-wrapper">
         <form class="form" action="/login" method="post">
             <div class="form-item">
                 <label class="form-item-description" for="#login-username">Логин:</label>
@@ -10,8 +10,10 @@
                 <label class="form-item-description" for="#login-password">Пароль:</label>
                 <input class="form-input" type="password" name="password" id="login-password" placeholder="Пароль">
             </div>
-            <input type="hidden" name="_csrf" value="${_csrf.token}">
-            <input class="form-button" type="submit" value="Войти">
+            <div class="form-item-button">
+                <input type="hidden" name="_csrf" value="${_csrf.token}">
+                <input class="form-button" type="submit" value="Войти">
+            </div>
         </form>
     </div>
 </#macro>
@@ -19,34 +21,33 @@
 
 Форма для регистрации нового пользователя
 <#macro registerForm>
-    <form action="/registration" method="post">
-        <div>
-            <label>
-                Логин:
-                <input type="text" name="username" placeholder="Логин">
-            </label>
-        </div>
-        <div>
-            <label>
-                Пароль:
-                <input type="password" name="password" placeholder="Пароль">
-            </label>
-        </div>
-        <div>
-            <label>
-                Подтвердите пароль:
-                <input type="password" name="confirmPassword" placeholder="Повторите пароль">
-            </label>
-        </div>
-        <div>
-            <label>
-                Почта:
-                <input type="email" name="email" placeholder="someadress@some.com">
-            </label>
-        </div>
-        <input type="hidden" name="_csrf" value="${_csrf.token}">
-        <input type="submit" value="Зарегистрироваться">
-    </form>
+    <div class="form-wrapper">
+        <form class="form" action="/registration" method="post">
+            <div class="form-item">
+                <label class="form-item-description" for="#reg-username">Логин:</label>
+                <input class="form-input" type="text" name="username" id="reg-username" placeholder="Логин">
+            </div>
+            <div class="form-item">
+                <label class="form-item-description" for="#reg-password">Пароль:</label>
+                <input class="form-input" type="password" name="password" id="reg-password" placeholder="Пароль">
+            </div>
+            <div class="form-item">
+                <label class="form-item-description" for="#reg-confirmPassword">Подтвердите пароль:</label>
+                <input class="form-input" type="password" name="confirmPassword" id="reg-confirmPassword" placeholder="Повторите пароль">
+            </div>
+            <div class="form-item">
+                <label class="form-item-description" for="#reg-email">Почта:</label>
+                <input class="form-input" type="email" name="email" id="reg-email" placeholder="someadress@some.com">
+            </div>
+            <div class="form-item-button">
+                <input type="hidden" name="_csrf" value="${_csrf.token}">
+                <input class="form-button" type="submit" value="Зарегистрироваться">
+            </div>
+            <div class="form-item-button">
+                <a class="link-button" href="/user">Отмена</a>
+            </div>
+        </form>
+    </div>
 </#macro>
 
 Форма для выхода

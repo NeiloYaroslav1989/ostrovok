@@ -1,25 +1,30 @@
 <#import "part/common.ftl" as common>
+<#import "part/form.ftl" as form>
 
 <@common.page>
-    <h3>Список преподавателей</h3>
-    <table>
+    <h1 class="page-title">Список преподавателей</h1>
+    <table class="table">
         <thead>
             <tr>
-                <th>Имя</th>
-                <th>Роль</th>
-                <th></th>
-                <th></th>
+                <th class="table-head">Имя</th>
+                <th class="table-head">Роль</th>
+                <th class="table-head"></th>
+                <th class="table-head"></th>
             </tr>
         </thead>
-        <tbody>
+        <tbody class="table-body">
             <#list users as user>
                 <tr>
-                    <td>${user.username}</td>
-                    <td><#list user.roles as role>${role}<#sep>, </#list></td>
-                    <td><a href="/user/${user.id}">Редактировать</a></td>
-                    <td><a href="/user/${user.id}">Удалить</a></td>
+                    <td class="table-row">${user.username}</td>
+                    <td class="table-row"><#list user.roles as role>${role}<#sep>, </#list></td>
+                    <td class="table-row"><a href="/user/${user.id}">Редактировать</a></td>
+                    <td class="table-row"><a href="/user/${user.id}">Удалить</a></td>
                 </tr>
             </#list>
         </tbody>
     </table>
+    <div class="link-wrapper">
+        <a class="link-button" href="/registration">Добавить пользователя</a>
+    </div>
+
 </@common.page>

@@ -1,7 +1,7 @@
 <#import "part/common.ftl" as common>
 
 <@common.page>
-    <h1 class="main-title">Последние новости и события<br>в детском клубе "Островок"</h1>
+    <h1 class="page-title">Последние новости и события<br>в детском клубе "Островок"</h1>
     <article class="article">
         <h3 class="article-title">Объявляется набор на онлайн обучение</h3>
         <p class="article-description">
