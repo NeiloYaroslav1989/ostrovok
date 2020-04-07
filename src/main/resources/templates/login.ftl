@@ -3,7 +3,7 @@
 
 <@common.page>
     <@form.loginForm></@form.loginForm>
-    <div>
+    <div >
         <a href="/registration">Зарегистрироваться</a>
     </div>
     <div>

@@ -1,43 +1,60 @@
 html {
     display: flex;
     flex-direction: column;
+
     height: 100vh;
     min-height: 100%;
-    background: #fff;
+    /*background: #fff;*/
+    background: #745a97;
 }
 
 body {
+
+}
+
+body * {
+    /*border: #000 1px solid;*/
+
+}
+
+.wrapper {
     display: flex;
     flex-direction: column;
+    justify-content: space-between;
+    align-content: stretch;
     flex: auto;
+    max-width: 960px;
+    min-width: 430px;
+    min-height: 100vh;
+    margin: 0 auto;
+    box-shadow: 0 0 10px rgba(0,0,0,0.5);
 }
 
 .header {
     display: flex;
     flex-wrap: wrap;
-    align-items: flex-end;
+    align-items: stretch;
     justify-content: space-between;
     width: 100%;
-    max-width: 960px;
-    min-width: 430px;
-    margin: 0 auto 30px;
-    padding: 10px 0 10px;
+    height: 60px;
     box-sizing: border-box;
+    background: #745a97;
 }
 
 .logo {
-    display: flex;
-    flex: none;
-    align-items: center;
-    width: 150px;
-    height: 40px;
-    background: url("../img/logo_mini_ostrovok.png") center no-repeat;
-    background-size: 150px;
+    /*display: flex;*/
+    /*flex: none;*/
+}
+
+.logo-img {
+    width: 200px;
+    height: auto;
+    margin: 5px 15px;
 }
 
 .nav {
     display: flex;
-    flex-wrap: wrap;
+    flex-wrap: nowrap;
 }
 
 .nav-item {
@@ -48,6 +65,118 @@ body {
     height: 100%;
     text-decoration: none;
     text-align: center;
+    color: #fff;
+    font: bold 12pt sans-serif;
+    /*border: #fff 1px solid;*/
+}
+
+.nav-item:hover {
+    background: #603893;
+}
+
+.login-link {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-basis: 100px;
+    color: #fff;
+    text-decoration: none;
+}
+
+.login-link:hover {
+    background: #603893;
+}
+
+.main {
+    display: flex;
+    flex-flow: column;
+
+    width: 100%;
+    min-height: 80%;
+    max-width: 960px;
+    min-width: 430px;
+    margin: 0 auto;
+    padding: 30px;
+    box-sizing: border-box;
+    background: #745a97;
+}
+
+.main-title {
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: center;
+
+    text-align: center;
+    margin: 20px;
+    color: #fff;
+}
+
+.article {
+    padding: 20px 10px;
+}
+
+.article-title {
+    margin: 10px 0;
+    color: #fff;
+    font: bold 14pt sans-serif;
+}
+
+.article-description {
+    color: #fff;
+    font: 12pt sans-serif;
+
+}
+
+.footer {
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: center;
+
+    width: 100%;
+    height: 60px;
+    max-width: 960px;
+    min-width: 430px;
+    margin: 0 auto;
+    /*padding: 10px;*/
+    box-sizing: border-box;
+    background: #745a97;
+}
+
+/*+++_LOGIN_PAGE_+++*/
+.login {
+    display: flex;
+    justify-content: center;
+}
+
+.form {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    flex-basis: 300px;
+}
+
+.form-item {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+
+    width: 100%;
+    margin: 5px;
+}
+
+.form-item-description {
+    color: #fff;
+    font: 12pt sans-serif;
+
+}
+
+.form-input {
+}
+
+.form-button {
+    width: 100px;
+    margin: 10px;
 }
 
 
