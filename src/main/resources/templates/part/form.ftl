@@ -24,27 +24,41 @@
     <div class="form-wrapper">
         <form class="form" action="/registration" method="post">
             <div class="form-item">
-                <label class="form-item-description" for="#reg-username">Логин:</label>
+                <label class="form-item-description" for="reg-username">Логин:</label>
                 <input class="form-input" type="text" name="username" id="reg-username" placeholder="Логин">
             </div>
             <div class="form-item">
-                <label class="form-item-description" for="#reg-password">Пароль:</label>
-                <input class="form-input" type="password" name="password" id="reg-password" placeholder="Пароль">
+                <label class="form-item-description" for="reg-password">Пароль:</label>
+                <input class="form-input" type="text" name="password" id="reg-password" placeholder="Пароль">
             </div>
             <div class="form-item">
-                <label class="form-item-description" for="#reg-confirmPassword">Подтвердите пароль:</label>
-                <input class="form-input" type="password" name="confirmPassword" id="reg-confirmPassword" placeholder="Повторите пароль">
+                <label class="form-item-description" for="reg-confirmPassword">Подтвердите пароль:</label>
+                <input class="form-input" type="text" name="confirmPassword" id="reg-confirmPassword" placeholder="Повторите пароль">
             </div>
             <div class="form-item">
-                <label class="form-item-description" for="#reg-email">Почта:</label>
+                <label class="form-item-description" for="reg-email">Почта:</label>
                 <input class="form-input" type="email" name="email" id="reg-email" placeholder="someadress@some.com">
+            </div>
+            <div class="form-item">
+                <div class="form-checkbox">
+                    <label class="form-item-description" for="reg-role-user">User</label>
+                    <input class="form-input" type="checkbox" name="role-user" value="User" id="reg-role-user">
+                </div>
+                <div class="form-checkbox">
+                    <label class="form-item-description" for="reg-role-teacher">Teacher</label>
+                    <input class="form-input" type="checkbox" name="role-teacher" value="Teacher" id="reg-role-teacher">
+                </div>
+                <div class="form-checkbox">
+                    <label class="form-item-description" for="reg-role-admin">Admin</label>
+                    <input class="form-input" type="checkbox" name="role-admin" value="Admin" id="reg-role-admin">
+                </div>
             </div>
             <div class="form-item-button">
                 <input type="hidden" name="_csrf" value="${_csrf.token}">
-                <input class="form-button" type="submit" value="Зарегистрироваться">
+                <input class="form-button" type="submit" value="Сохранить">
             </div>
             <div class="form-item-button">
-                <a class="link-button" href="/user">Отмена</a>
+                <a class="form-button-link" href="/user">Отмена</a>
             </div>
         </form>
     </div>
@@ -60,31 +74,72 @@
 
 Форма для редактирования пользователя
 <#macro edit>
-    <form action="/user" method="post">
-        <input type="hidden" name="_csrf" value="${_csrf.token}">
-        <input type="hidden" name="userId" value="${user.id}">
-        <table>
-            <thead>
-                <tr>
-                    <th>Имя пользователя</th>
-                    <th>Роль</th>
-                    <th></th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td><input type="text" name="username" value="${user.username}"></td>
-                    <td>
-                        <#list roles as role>
-                            <label>
-                                ${role}
-                                <input type="checkbox" name="${role}" ${user.roles?seq_contains(role)?string("checked", "")}>
-                            </label>
-                        </#list>
-                    </td>
-                    <td><button type="submit">Сохранить</button></td>
-                </tr>
-            </tbody>
-        </table>
-    </form>
+    <div class="form-wrapper">
+        <form class="form" action="/user" method="post">
+            <input type="hidden" name="userId" value="${user.id}">
+            <div class="form-item">
+                <label class="form-item-description" for="edit-username">Логин:</label>
+                <input class="form-input" type="text" name="username" id="edit-username" value="${user.username}">
+            </div>
+            <div class="form-item">
+                <label class="form-item-description" for="edit-password">Пароль:</label>
+                <input class="form-input" type="text" name="password" id="edit-password" value="${user.password}">
+            </div>
+            <div class="form-item">
+                <label class="form-item-description" for="edit-confirmPassword">Подтвердите пароль:</label>
+                <input class="form-input" type="text" name="confirmPassword" id="edit-confirmPassword" value="${user.confirmPassword}">
+            </div>
+            <div class="form-item">
+                <label class="form-item-description" for="edit-email">Почта:</label>
+                <input class="form-input" type="email" name="email" id="edit-email" value="${user.email}">
+            </div>
+            <div class="form-item">
+                <#list roles as role>
+                    <div class="form-checkbox">
+                        <label class="form-item-description" for="edit-role-${role}">${role}</label>
+                        <input class="form-input" type="checkbox" name="${role}" value="${role}" id="edit-role-${role}"
+                                ${user.roles?seq_contains(role)?string("checked", "")}>
+                    </div>
+                </#list>
+            </div>
+            <div class="form-item-button">
+                <input type="hidden" name="_csrf" value="${_csrf.token}">
+                <input class="form-button" type="submit" value="Сохранить">
+            </div>
+            <div class="form-item-button">
+                <a class="form-button-link" href="/user">Отмена</a>
+            </div>
+        </form>
+    </div>
+
+
+
+
+<#--    <form action="/user" method="post">-->
+<#--        <input type="hidden" name="_csrf" value="${_csrf.token}">-->
+<#--        <input type="hidden" name="userId" value="${user.id}">-->
+<#--        <table>-->
+<#--            <thead>-->
+<#--                <tr>-->
+<#--                    <th>Имя пользователя</th>-->
+<#--                    <th>Роль</th>-->
+<#--                    <th></th>-->
+<#--                </tr>-->
+<#--            </thead>-->
+<#--            <tbody>-->
+<#--                <tr>-->
+<#--                    <td><input type="text" name="username" value="${user.username}"></td>-->
+<#--                    <td>-->
+<#--                        <#list roles as role>-->
+<#--                            <label>-->
+<#--                                ${role}-->
+<#--                                <input type="checkbox" name="${role}" ${user.roles?seq_contains(role)?string("checked", "")}>-->
+<#--                            </label>-->
+<#--                        </#list>-->
+<#--                    </td>-->
+<#--                    <td><button type="submit">Сохранить</button></td>-->
+<#--                </tr>-->
+<#--            </tbody>-->
+<#--        </table>-->
+<#--    </form>-->
 </#macro>

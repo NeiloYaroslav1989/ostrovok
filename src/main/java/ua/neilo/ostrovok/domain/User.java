@@ -3,7 +3,6 @@ package ua.neilo.ostrovok.domain;
 import lombok.Data;
 
 import javax.persistence.*;
-import java.util.List;
 import java.util.Set;
 
 @Entity
@@ -27,5 +26,14 @@ public class User {
     @Enumerated(EnumType.STRING)
     private Set<Role> roles;
 
+    public boolean isTeacher() {
+        return roles.contains(Role.TEACHER);
+    }
+    public boolean isAdmin() {
+        return roles.contains(Role.ADMIN);
+    }
+
     private boolean active;
+
+
 }

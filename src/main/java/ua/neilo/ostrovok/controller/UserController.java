@@ -33,21 +33,29 @@ public class UserController {
         return "userList";
     }
 
-    @GetMapping("{user}")
-    public String userEditForm(@PathVariable("user") User user,
+    @GetMapping("/edit/{id}")
+    public String userEditForm(@PathVariable("id") Long id,
                                Model model) {
+        User user = userRepo.getOne(id);
         model.addAttribute("user", user);
         model.addAttribute("roles", Role.values());
         return "userEdit";
     }
 
     @PostMapping
-    public String userSave(
+    public String userUpdate(
             @RequestParam String username,
+            @RequestParam String password,
+            @RequestParam String confirmPassword,
+            @RequestParam String email,
             @RequestParam Map<String, String> form,
             @RequestParam ("userId") User user
     ) {
         user.setUsername(username);
+        user.setPassword(password);
+        user.setConfirmPassword(confirmPassword);
+        user.setEmail(email);
+
         Set<String> roles = Arrays.stream(Role.values())
                                     .map(Role::name)
                                     .collect(Collectors.toSet());
@@ -60,9 +68,14 @@ public class UserController {
             }
         }
 
-
         userRepo.save(user);
 
+        return "redirect:/user";
+    }
+
+    @GetMapping("/delete/{id}")
+    public String userDelete(@PathVariable("id") Long id) {
+        userRepo.deleteById(id);
         return "redirect:/user";
     }
 

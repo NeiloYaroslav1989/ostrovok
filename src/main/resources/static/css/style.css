@@ -174,8 +174,17 @@ body * {
 .form-item-description {
     color: #fff;
     font: 12pt sans-serif;
+    padding-right: 10px;
 
 }
+
+.form-checkbox {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+
 
 .form-input {
 }
@@ -195,6 +204,19 @@ body * {
     background: #dedede;
 }
 
+.form-button-link {
+    width: 50%;
+    padding: 4px 0;
+    text-decoration: none;
+    background: #f5f5f5;
+    color: #000;
+}
+
+.form-button-link:hover {
+    cursor: pointer;
+    background: #dedede;
+}
+
 /*+++_User_LIST_+++*/
 
 .link {
@@ -205,7 +227,7 @@ body * {
 
 .link-button {
     width: 50%;
-    padding: 4px 0;
+    padding: 4px 10px;
     text-decoration: none;
     background: #f5f5f5;
     color: #000;
@@ -215,6 +237,8 @@ body * {
     cursor: pointer;
     background: #dedede;
 }
+
+
 
 .link-wrapper {
     margin: 20px 0;
@@ -232,6 +256,7 @@ body * {
 .table-row {
     padding: 5px 0;
 }
+
 
 
 
