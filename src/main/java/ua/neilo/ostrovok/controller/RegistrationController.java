@@ -1,12 +1,9 @@
 package ua.neilo.ostrovok.controller;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestParam;
 import ua.neilo.ostrovok.domain.Role;
 import ua.neilo.ostrovok.domain.User;
 import ua.neilo.ostrovok.repository.UserRepo;
@@ -23,7 +20,7 @@ public class RegistrationController {
 
     @GetMapping("/registration")
     public String registration() {
-        return "registration";
+        return "userAdd";
     }
 
     @PostMapping("/registration")
@@ -32,7 +29,7 @@ public class RegistrationController {
 
         if (userFromDb != null) {
             model.addAttribute("message", "User exists!");
-            return "registration";
+            return "userAdd";
         }
 
         user.setActive(true);

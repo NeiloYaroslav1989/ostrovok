@@ -1,5 +1,5 @@
 <#import "part/common.ftl" as common>
-<#import "part/form.ftl" as form>
+<#import "part/user.ftl" as form>
 
 <@common.page>
     <h1 class="page-title">Регистрация нового пользователя</h1>
