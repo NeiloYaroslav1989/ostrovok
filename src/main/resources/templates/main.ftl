@@ -2,12 +2,16 @@
 <#import "part/form.ftl" as form>
 
 <@common.page>
+    <@form.logout></@form.logout>
     <div>
-        <a class="link" href="/user">Список преподавателей</a>
+        <a class="link" href="/users">Список преподавателей</a>
     </div>
     <div>
-        <p>Hello World!</p>
+        <a class="link" href="/groups">Список групп</a>
+    </div>
+    <div>
+        <a class="link" href="/clients">Список клиентов</a>
     </div>
 
-    <@form.logout></@form.logout>
+
 </@common.page>

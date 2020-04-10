@@ -58,7 +58,7 @@
                 <input class="form-button" type="submit" value="Сохранить">
             </div>
             <div class="form-item-button">
-                <a class="form-button-link" href="/user">Отмена</a>
+                <a class="form-button-link" href="/users">Отмена</a>
             </div>
         </form>
     </div>
@@ -75,7 +75,7 @@
 Форма для редактирования пользователя
 <#macro edit>
     <div class="form-wrapper">
-        <form class="form" action="/user" method="post">
+        <form class="form" action="/users" method="post">
             <input type="hidden" name="userId" value="${user.id}">
             <div class="form-item">
                 <label class="form-item-description" for="edit-username">Логин:</label>
@@ -107,39 +107,8 @@
                 <input class="form-button" type="submit" value="Сохранить">
             </div>
             <div class="form-item-button">
-                <a class="form-button-link" href="/user">Отмена</a>
+                <a class="form-button-link" href="/users">Отмена</a>
             </div>
         </form>
     </div>
-
-
-
-
-<#--    <form action="/user" method="post">-->
-<#--        <input type="hidden" name="_csrf" value="${_csrf.token}">-->
-<#--        <input type="hidden" name="userId" value="${user.id}">-->
-<#--        <table>-->
-<#--            <thead>-->
-<#--                <tr>-->
-<#--                    <th>Имя пользователя</th>-->
-<#--                    <th>Роль</th>-->
-<#--                    <th></th>-->
-<#--                </tr>-->
-<#--            </thead>-->
-<#--            <tbody>-->
-<#--                <tr>-->
-<#--                    <td><input type="text" name="username" value="${user.username}"></td>-->
-<#--                    <td>-->
-<#--                        <#list roles as role>-->
-<#--                            <label>-->
-<#--                                ${role}-->
-<#--                                <input type="checkbox" name="${role}" ${user.roles?seq_contains(role)?string("checked", "")}>-->
-<#--                            </label>-->
-<#--                        </#list>-->
-<#--                    </td>-->
-<#--                    <td><button type="submit">Сохранить</button></td>-->
-<#--                </tr>-->
-<#--            </tbody>-->
-<#--        </table>-->
-<#--    </form>-->
 </#macro>

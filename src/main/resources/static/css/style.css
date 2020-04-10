@@ -250,6 +250,8 @@ body * {
 }
 
 .table-head {
+    text-align: left;
+    font: bold 12pt sans-serif;
     padding: 10px 0;
 }
 

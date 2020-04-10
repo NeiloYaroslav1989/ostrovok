@@ -16,7 +16,7 @@ import java.util.Set;
 import java.util.stream.Collectors;
 
 @Controller
-@RequestMapping("/user")
+@RequestMapping("/users")
 @PreAuthorize("hasAuthority('ADMIN')")
 public class UserController {
     private final UserRepo userRepo;
@@ -70,13 +70,13 @@ public class UserController {
 
         userRepo.save(user);
 
-        return "redirect:/user";
+        return "redirect:/users";
     }
 
     @GetMapping("/delete/{id}")
     public String userDelete(@PathVariable("id") Long id) {
         userRepo.deleteById(id);
-        return "redirect:/user";
+        return "redirect:/users";
     }
 
 
