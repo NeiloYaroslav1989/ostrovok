@@ -32,6 +32,6 @@ public class ClientService {
     }
 
     public Client findClientByName(String name) {
-        return clientRepo.findClientByName(name);
+        return clientRepo.findByName(name);
     }
 }

@@ -8,11 +8,11 @@
             </div>
             <div class="form-item">
                 <label class="form-item-description" for="client-groupTitle">Группа:</label>
-                <input class="form-input" type="text" name="group" id="client-groupTitle" placeholder="Подготовка к школе">
+                <input class="form-input" type="text" name="groupTitle" id="client-groupTitle" placeholder="Подготовка к школе">
             </div>
             <div class="form-item">
                 <label class="form-item-description" for="client-groupTime">Время:</label>
-                <input class="form-input" type="text" name="time" id="client-groupTime" placeholder="Пн-Пт 16.00">
+                <input class="form-input" type="text" name="groupTime" id="client-groupTime" placeholder="Пн-Пт 16.00">
             </div>
             <div class="form-item">
                 <label class="form-item-description" for="client-phone">Телефон:</label>
@@ -44,11 +44,11 @@
             </div>
             <div class="form-item">
                 <label class="form-item-description" for="client-edit-group">Группа:</label>
-                <input class="form-input" type="text" name="group" id="client-edit-group" value="${client.groupTitle}">
+                <input class="form-input" type="text" name="groupTitle" id="client-edit-group" value="${client.groupTitle}">
             </div>
             <div class="form-item">
                 <label class="form-item-description" for="client-edit-time">Время:</label>
-                <input class="form-input" type="text" name="time" id="client-edit-time" value="${client.groupTime}">
+                <input class="form-input" type="text" name="groupTime" id="client-edit-time" value="${client.groupTime}">
             </div>
             <div class="form-item">
                 <label class="form-item-description" for="client-edit-phone">Телефон:</label>

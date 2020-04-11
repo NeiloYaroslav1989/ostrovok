@@ -31,7 +31,7 @@ public class GroupController {
     }
 
     @PostMapping("/groups")
-    public String saveGroup(Model model, Group group) {
+    public String groupAdd(Model model, Group group) {
         Group groupFromDb = groupService.findGroupByTitleAndTime(group.getTitle(), group.getTime());
 
         if (groupFromDb != null) {

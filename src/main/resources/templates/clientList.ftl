@@ -18,10 +18,10 @@
             <#list clients as client>
                 <tr>
                     <td class="table-row">${client.name}</td>
-                    <td class="table-row">${client.birthday}</td>
+                    <td class="table-row">${client.groupTitle}</td>
+                    <td class="table-row">${client.groupTime}</td>
                     <td class="table-row">${client.phone}</td>
-                    <td class="table-row">${client.group}</td>
-                    <td class="table-row">${client.time}</td>
+                    <td class="table-row">${client.birthday}</td>
                     <td class="table-row"><a class="link" href="/clients/edit/${client.id}">Редактировать</a></td>
                     <td class="table-row"><a class="link" href="/clients/delete/${client.id}">Удалить</a></td>
                 </tr>

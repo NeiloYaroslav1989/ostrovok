@@ -4,16 +4,10 @@ html {
 
     height: 100vh;
     min-height: 100%;
-    /*background: #fff;*/
     background: #745a97;
 }
 
 body {
-
-}
-
-body * {
-    /*border: #000 1px solid;*/
 
 }
 
@@ -259,6 +253,12 @@ body * {
     padding: 5px 0;
 }
 
+.message {
+    margin: 10px 0;
+    font: bold 12pt sans-serif;
+    text-align: center;
+    color: red;
+}
 
 
 
