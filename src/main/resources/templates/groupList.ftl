@@ -18,14 +18,15 @@
                     <td class="table-row">${group.title}</td>
                     <td class="table-row">${group.time}</td>
                     <td class="table-row">${group.teacher}</td>
-                    <td class="table-row"><a class="link" href="/groups/edit/${group.id}">Редактировать</a></td>
-                    <td class="table-row"><a class="link" href="/groups/delete/${group.id}">Удалить</a></td>
+                    <td class="table-row"><a class="link-edit" href="/groups/edit/${group.id}"></a></td>
+                    <td class="table-row"><a class="link-delete" href="/groups/delete/${group.id}"></a></td>
                 </tr>
             </#list>
         </tbody>
     </table>
     <div class="link-wrapper">
         <a class="link-button" href="/addGroup">Добавить группу</a>
+        <a class="link-button" href="/main">Назад</a>
     </div>
 
 </@common.page>

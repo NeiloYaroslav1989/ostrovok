@@ -17,14 +17,15 @@
                 <tr>
                     <td class="table-row">${user.username}</td>
                     <td class="table-row"><#list user.roles as role>${role}<#sep>, </#list></td>
-                    <td class="table-row"><a class="link" href="/users/edit/${user.id}">Редактировать</a></td>
-                    <td class="table-row"><a class="link" href="/users/delete/${user.id}">Удалить</a></td>
+                    <td class="table-row"><a class="link-edit" href="/users/edit/${user.id}"></a></td>
+                    <td class="table-row"><a class="link-delete" href="/users/delete/${user.id}"></a></td>
                 </tr>
             </#list>
         </tbody>
     </table>
     <div class="link-wrapper">
         <a class="link-button" href="/registration">Добавить пользователя</a>
+        <a class="link-button" href="/main">Назад</a>
     </div>
 
 </@common.page>

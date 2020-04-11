@@ -239,6 +239,31 @@ body {
     text-align: center;
 }
 
+.link-edit {
+    display: flex;
+    background: url("../../static/img/btn-edit.png") no-repeat;
+    background-size: contain;
+    width: 16px;
+    height: 16px;
+    margin: 0 5px;
+}
+
+.link-delete {
+    display: flex;
+    background: url("../../static/img/btn-delete.png") no-repeat;
+    background-size: contain;
+    width: 16px;
+    height: 16px;
+    margin: 0 5px;
+}
+
+
+.link-img-icon {
+    width: 16px;
+    height: 16px;
+}
+
+
 .table {
 
 }
