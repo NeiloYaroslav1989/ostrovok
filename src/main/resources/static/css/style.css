@@ -153,13 +153,14 @@ body {
     flex-direction: column;
     justify-content: flex-start;
     align-items: center;
-    flex-basis: 400px;
+    flex-basis: 450px;
 }
 
 .form-item, .form-item-button {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
+
 
     width: 100%;
     margin: 5px;
@@ -169,6 +170,7 @@ body {
     color: #fff;
     font: 12pt sans-serif;
     padding-right: 10px;
+    flex-basis: 40%;
 
 }
 
@@ -181,6 +183,10 @@ body {
 
 
 .form-input {
+    flex-basis: 60%;
+}
+.form-select {
+    flex-basis: 60%;
 }
 
 .form-item-button {

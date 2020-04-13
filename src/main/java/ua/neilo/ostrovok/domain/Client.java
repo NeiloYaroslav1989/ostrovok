@@ -14,7 +14,9 @@ public class Client {
     private String name;
     private String birthday;
     private String phone;
-    private String groupTitle;
-    private String groupTime;
+
+    @ManyToOne (cascade = CascadeType.ALL)
+    @JoinColumn (name = "group_id")
+    private Group group;
 
 }

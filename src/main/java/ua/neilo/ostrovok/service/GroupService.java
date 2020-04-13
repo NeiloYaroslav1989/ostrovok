@@ -31,7 +31,7 @@ public class GroupService {
         groupRepo.deleteById(id);
     }
 
-    public Group findGroupByTitleAndTime(String title, String time) {
-        return groupRepo.findByTitleAndTime(title, time);
+    public Group findGroupByTitle(String title) {
+        return groupRepo.findByTitle(title);
     }
 }

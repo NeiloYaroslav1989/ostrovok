@@ -32,7 +32,7 @@ public class GroupController {
 
     @PostMapping("/groups")
     public String groupAdd(Model model, Group group) {
-        Group groupFromDb = groupService.findGroupByTitleAndTime(group.getTitle(), group.getTime());
+        Group groupFromDb = groupService.findGroupByTitle(group.getTitle());
 
         if (groupFromDb != null) {
             model.addAttribute("message", "Group already exists!");
@@ -59,13 +59,11 @@ public class GroupController {
     @PostMapping("/groups/edit")
     public String updateGroup(@RequestParam("groupId") Long id,
                               @RequestParam("title") String title,
-                              @RequestParam("time") String time,
                               @RequestParam("teacher") String teacher,
                               Model model) {
         Group group = groupService.findGroupById(id);
 
         group.setTitle(title);
-        group.setTime(time);
         group.setTeacher(teacher);
 
         groupService.saveGroup(group);

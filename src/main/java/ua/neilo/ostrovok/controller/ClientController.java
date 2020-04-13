@@ -9,7 +9,9 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import ua.neilo.ostrovok.domain.Client;
+import ua.neilo.ostrovok.domain.Group;
 import ua.neilo.ostrovok.service.ClientService;
+import ua.neilo.ostrovok.service.GroupService;
 
 import java.util.List;
 
@@ -17,10 +19,13 @@ import java.util.List;
 @PreAuthorize("hasAuthority('TEACHER')")
 public class ClientController {
     private final ClientService clientService;
+    private final GroupService groupService;
 
-    public ClientController(ClientService clientService) {
+    public ClientController(ClientService clientService, GroupService groupService) {
         this.clientService = clientService;
+        this.groupService = groupService;
     }
+
 
     @GetMapping("/clients")
     public String getClientList(Model model) {
@@ -30,18 +35,28 @@ public class ClientController {
     }
 
     @GetMapping("/clientAdd")
-    public String getClientAddPage() {
+    public String getClientAddPage(Model model) {
+        List<Group> groups = groupService.findAllGroups();
+        model.addAttribute("groups", groups);
         return "clientAdd";
     }
 
     @PostMapping("/clientAdd")
-    public String clientAdd(Client client, Model model) {
+    public String clientAdd(@RequestParam("groupTitle") String groupTitle,
+                            Client client,
+                            Model model) {
         Client clientFromDb = clientService.findClientByName(client.getName());
 
         if (clientFromDb != null) {
             model.addAttribute("message", "Клиент с таким именем и фамилией уже есть в базе данных");
             return "clientAdd";
         }
+
+        Group group = groupService.findGroupByTitle(groupTitle);
+
+        client.setGroup(group);
+
+        group.addClient(client);
 
         clientService.saveClient(client);
 
@@ -66,8 +81,8 @@ public class ClientController {
         Client client = clientService.findClientById(id);
 
         client.setName(name);
-        client.setGroupTitle(groupTitle);
-        client.setGroupTime(groupTime);
+//        client.setGroupTitle(groupTitle);
+//        client.setGroupTime(groupTime);
         client.setPhone(phone);
         client.setBirthday(birthday);
 

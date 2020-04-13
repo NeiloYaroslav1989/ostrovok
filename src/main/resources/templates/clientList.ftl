@@ -7,7 +7,6 @@
             <tr>
                 <th class="table-head">Фамилия Имя</th>
                 <th class="table-head">Группа</th>
-                <th class="table-head">Время</th>
                 <th class="table-head">Телефон</th>
                 <th class="table-head">День рождения</th>
                 <th class="table-head"></th>
@@ -18,8 +17,7 @@
             <#list clients as client>
                 <tr>
                     <td class="table-row">${client.name}</td>
-                    <td class="table-row">${client.groupTitle}</td>
-                    <td class="table-row">${client.groupTime}</td>
+                    <td class="table-row">${client.getGroup().getTitle()}</td>
                     <td class="table-row">${client.phone}</td>
                     <td class="table-row">${client.birthday}</td>
                     <td class="table-row"><a class="link-edit" href="/clients/edit/${client.id}"></a></td>

@@ -7,12 +7,12 @@
                 <input class="form-input" type="text" name="name" id="client-name" placeholder="Иванов Иван">
             </div>
             <div class="form-item">
-                <label class="form-item-description" for="client-groupTitle">Группа:</label>
-                <input class="form-input" type="text" name="groupTitle" id="client-groupTitle" placeholder="Подготовка к школе">
-            </div>
-            <div class="form-item">
-                <label class="form-item-description" for="client-groupTime">Время:</label>
-                <input class="form-input" type="text" name="groupTime" id="client-groupTime" placeholder="Пн-Пт 16.00">
+                <label class="form-item-description" for="client-group-title">Группа:</label>
+                <select class="form-select" name="groupTitle" id="client-group-title">
+                    <#list groups as group>
+                        <option  value="${group.title}">${group.title}</option>
+                    </#list>
+                </select>
             </div>
             <div class="form-item">
                 <label class="form-item-description" for="client-phone">Телефон:</label>
