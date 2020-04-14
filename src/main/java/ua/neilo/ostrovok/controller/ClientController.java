@@ -104,7 +104,12 @@ public class ClientController {
 
     @GetMapping("/clients/delete/{id}")
     public String clientDelete(@PathVariable("id") Long id) {
+        Client client = clientService.findById(id);
+        Group pastGroup = groupService.findById(client.getGroup().getId());
+
+        pastGroup.removeClientFromList(client);
         clientService.deleteById(id);
+
         return "redirect:/clients";
     }
 
