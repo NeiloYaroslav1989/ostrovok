@@ -1,6 +1,8 @@
 package ua.neilo.ostrovok.domain;
 
 import lombok.Data;
+import lombok.Getter;
+import lombok.Setter;
 
 import javax.persistence.*;
 import java.util.List;
@@ -8,7 +10,8 @@ import java.util.Set;
 
 @Entity
 @Table(name = "grp")
-@Data
+@Getter
+@Setter
 public class Group {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -21,7 +24,11 @@ public class Group {
 //    @CollectionTable(name = "group_clients", joinColumns = @JoinColumn(name = "client_id"))
     private List<Client> clients;
 
-    public void addClient(Client client) {
+    public void addClientToList(Client client) {
         clients.add(client);
+    }
+
+    public void removeClientFromList(Client client) {
+        clients.remove(client);
     }
 }

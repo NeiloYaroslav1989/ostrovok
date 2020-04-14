@@ -16,7 +16,7 @@ public class GroupService {
     }
 
     public Group findById(Long id) {
-        return groupRepo.getOne(id);
+        return groupRepo.findById(id).orElse(null);
     }
 
     public List<Group> findAll() {

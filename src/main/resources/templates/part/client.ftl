@@ -46,7 +46,11 @@
                 <label class="form-item-description" for="client-group-title">Группа:</label>
                 <select class="form-select" name="groupTitle" id="client-group-title">
                     <#list groups as group>
-                        <option  value="${group.title}">${group.title}</option>
+                        <#if currentGroupTitle == group.title>
+                            <option selected="selected" value="${group.title}">${group.title}</option>
+                        <#else>
+                            <option value="${group.title}">${group.title}</option>
+                        </#if>
                     </#list>
                 </select>
             </div>

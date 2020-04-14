@@ -54,9 +54,7 @@ public class ClientController {
         Group group = groupService.findByTitle(groupTitle);
 
         client.setGroup(group);
-
-        group.addClient(client);
-
+        group.addClientToList(client);
         clientService.save(client);
 
         return "redirect:/clients";
@@ -66,8 +64,10 @@ public class ClientController {
     public String getClientEditPage(@PathVariable("id") Long id, Model model) {
         Client client = clientService.findById(id);
         List<Group> groups = groupService.findAll();
+        String currentGroupTitle = client.getGroup().getTitle();
         model.addAttribute("client", client);
         model.addAttribute("groups", groups);
+        model.addAttribute("currentGroupTitle", currentGroupTitle);
         return "clientEdit";
     }
 
@@ -81,13 +81,18 @@ public class ClientController {
         Client client = clientService.findById(id);
         Group group = groupService.findByTitle(groupTitle);
 
+        Long currentGroupIdByClient = client.getGroup().getId();
+        Group pastGroup = groupService.findById(currentGroupIdByClient);
+
         client.setName(name);
         client.setPhone(phone);
         client.setBirthday(birthday);
 
         if (!client.getGroup().getTitle().equals(group.getTitle())) {
             client.setGroup(group);
-            group.addClient(client);
+            group.addClientToList(client);
+
+            pastGroup.removeClientFromList(client);
         }
 
         clientService.save(client);
