@@ -43,12 +43,12 @@
                 <input class="form-input" type="text" name="name" id="client-edit-name" value="${client.name}">
             </div>
             <div class="form-item">
-                <label class="form-item-description" for="client-edit-group">Группа:</label>
-                <input class="form-input" type="text" name="groupTitle" id="client-edit-group" value="${client.groupTitle}">
-            </div>
-            <div class="form-item">
-                <label class="form-item-description" for="client-edit-time">Время:</label>
-                <input class="form-input" type="text" name="groupTime" id="client-edit-time" value="${client.groupTime}">
+                <label class="form-item-description" for="client-group-title">Группа:</label>
+                <select class="form-select" name="groupTitle" id="client-group-title">
+                    <#list groups as group>
+                        <option  value="${group.title}">${group.title}</option>
+                    </#list>
+                </select>
             </div>
             <div class="form-item">
                 <label class="form-item-description" for="client-edit-phone">Телефон:</label>

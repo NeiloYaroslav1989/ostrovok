@@ -1,6 +1,5 @@
 package ua.neilo.ostrovok.controller;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -29,14 +28,14 @@ public class ClientController {
 
     @GetMapping("/clients")
     public String getClientList(Model model) {
-        List<Client> clients = clientService.findAllClients();
+        List<Client> clients = clientService.findAll();
         model.addAttribute("clients", clients);
         return "clientList";
     }
 
     @GetMapping("/clientAdd")
     public String getClientAddPage(Model model) {
-        List<Group> groups = groupService.findAllGroups();
+        List<Group> groups = groupService.findAll();
         model.addAttribute("groups", groups);
         return "clientAdd";
     }
@@ -45,48 +44,53 @@ public class ClientController {
     public String clientAdd(@RequestParam("groupTitle") String groupTitle,
                             Client client,
                             Model model) {
-        Client clientFromDb = clientService.findClientByName(client.getName());
+        Client clientFromDb = clientService.findByName(client.getName());
 
         if (clientFromDb != null) {
             model.addAttribute("message", "Клиент с таким именем и фамилией уже есть в базе данных");
             return "clientAdd";
         }
 
-        Group group = groupService.findGroupByTitle(groupTitle);
+        Group group = groupService.findByTitle(groupTitle);
 
         client.setGroup(group);
 
         group.addClient(client);
 
-        clientService.saveClient(client);
+        clientService.save(client);
 
         return "redirect:/clients";
     }
 
     @GetMapping("/clients/edit/{id}")
     public String getClientEditPage(@PathVariable("id") Long id, Model model) {
-        Client client = clientService.findClientById(id);
-        model.addAttribute(client);
+        Client client = clientService.findById(id);
+        List<Group> groups = groupService.findAll();
+        model.addAttribute("client", client);
+        model.addAttribute("groups", groups);
         return "clientEdit";
     }
 
     @PostMapping("/clientEdit")
     public String clientUpdate(@RequestParam("clientId") Long id,
-                                    @RequestParam("name") String name,
-                                    @RequestParam("groupTitle") String groupTitle,
-                                    @RequestParam("groupTime") String groupTime,
-                                    @RequestParam("phone") String phone,
-                                    @RequestParam("birthday") String birthday,
-                                    Model model) {
-        Client client = clientService.findClientById(id);
+                               @RequestParam("name") String name,
+                               @RequestParam("groupTitle") String groupTitle,
+                               @RequestParam("phone") String phone,
+                               @RequestParam("birthday") String birthday,
+                               Model model) {
+        Client client = clientService.findById(id);
+        Group group = groupService.findByTitle(groupTitle);
 
         client.setName(name);
-//        client.setGroupTitle(groupTitle);
-//        client.setGroupTime(groupTime);
         client.setPhone(phone);
         client.setBirthday(birthday);
 
-        clientService.saveClient(client);
+        if (!client.getGroup().getTitle().equals(group.getTitle())) {
+            client.setGroup(group);
+            group.addClient(client);
+        }
+
+        clientService.save(client);
 
         return "redirect:/clients";
     }
@@ -95,7 +99,7 @@ public class ClientController {
 
     @GetMapping("/clients/delete/{id}")
     public String clientDelete(@PathVariable("id") Long id) {
-        clientService.deleteClient(id);
+        clientService.deleteById(id);
         return "redirect:/clients";
     }
 

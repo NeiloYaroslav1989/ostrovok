@@ -15,23 +15,23 @@ public class ClientService {
         this.clientRepo = clientRepo;
     }
 
-    public Client findClientById(Long id) {
+    public Client findById(Long id) {
         return clientRepo.getOne(id);
     }
 
-    public List<Client> findAllClients() {
+    public List<Client> findAll() {
         return clientRepo.findAll();
     }
 
-    public void saveClient(Client client) {
+    public void save(Client client) {
         clientRepo.save(client);
     }
 
-    public void deleteClient(Long id) {
+    public void deleteById(Long id) {
         clientRepo.deleteById(id);
     }
 
-    public Client findClientByName(String name) {
+    public Client findByName(String name) {
         return clientRepo.findByName(name);
     }
 }

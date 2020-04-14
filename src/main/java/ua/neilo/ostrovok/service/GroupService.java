@@ -15,23 +15,23 @@ public class GroupService {
         this.groupRepo = groupRepo;
     }
 
-    public Group findGroupById(Long id) {
+    public Group findById(Long id) {
         return groupRepo.getOne(id);
     }
 
-    public List<Group> findAllGroups() {
+    public List<Group> findAll() {
         return groupRepo.findAll();
     }
 
-    public void saveGroup(Group group) {
+    public void save(Group group) {
         groupRepo.save(group);
     }
 
-    public void deleteGroupById(Long id) {
+    public void deleteById(Long id) {
         groupRepo.deleteById(id);
     }
 
-    public Group findGroupByTitle(String title) {
+    public Group findByTitle(String title) {
         return groupRepo.findByTitle(title);
     }
 }
