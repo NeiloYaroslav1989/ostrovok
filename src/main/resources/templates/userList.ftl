@@ -1,5 +1,5 @@
 <#import "part/common.ftl" as common>
-<#import "part/user.ftl" as form>
+<#import "part/logout.ftl" as form>
 
 <@common.page>
     <h1 class="page-title">Список преподавателей</h1>

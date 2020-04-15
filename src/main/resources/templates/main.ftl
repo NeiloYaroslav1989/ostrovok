@@ -1,17 +1,19 @@
 <#import "part/common.ftl" as common>
-<#import "part/user.ftl" as form>
+<#import "part/logout.ftl" as form>
 
 <@common.page>
     <@form.logout></@form.logout>
-    <div>
+    <div class="link-wrapper">
         <a class="link" href="/users">Список преподавателей</a>
     </div>
-    <div>
+    <div class="link-wrapper">
         <a class="link" href="/groups">Список групп</a>
     </div>
-    <div>
+    <div class="link-wrapper">
         <a class="link" href="/clients">Список клиентов</a>
     </div>
-
+    <div class="link-wrapper">
+        <a class="link" href="/news">Список новостей</a>
+    </div>
 
 </@common.page>
