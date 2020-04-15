@@ -42,15 +42,15 @@
             <div class="form-item">
                 <div class="form-checkbox">
                     <label class="form-item-description" for="reg-role-user">User</label>
-                    <input class="form-input" type="checkbox" name="role-user" value="User" id="reg-role-user">
+                    <input class="form-input" type="checkbox" name="USER" value="USER" id="reg-role-user">
                 </div>
                 <div class="form-checkbox">
                     <label class="form-item-description" for="reg-role-teacher">Teacher</label>
-                    <input class="form-input" type="checkbox" name="role-teacher" value="Teacher" id="reg-role-teacher">
+                    <input class="form-input" type="checkbox" name="TEACHER" value="TEACHER" id="reg-role-teacher">
                 </div>
                 <div class="form-checkbox">
                     <label class="form-item-description" for="reg-role-admin">Admin</label>
-                    <input class="form-input" type="checkbox" name="role-admin" value="Admin" id="reg-role-admin">
+                    <input class="form-input" type="checkbox" name="ADMIN" value="ADMIN" id="reg-role-admin">
                 </div>
             </div>
             <div class="form-item-button">

@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.*;
 import ua.neilo.ostrovok.domain.Role;
 import ua.neilo.ostrovok.domain.User;
 import ua.neilo.ostrovok.repository.UserRepo;
+import ua.neilo.ostrovok.service.UserService;
 
 import java.util.Arrays;
 import java.util.List;
@@ -19,15 +20,15 @@ import java.util.stream.Collectors;
 @RequestMapping("/users")
 @PreAuthorize("hasAuthority('ADMIN')")
 public class UserController {
-    private final UserRepo userRepo;
+    private final UserService userService;
 
-    public UserController(UserRepo userRepo) {
-        this.userRepo = userRepo;
+    public UserController(UserService userService) {
+        this.userService = userService;
     }
 
     @GetMapping
     public String userList(Model model) {
-        List<User> users = userRepo.findAll();
+        List<User> users = userService.findAll();
         model.addAttribute("users", users);
 
         return "userList";
@@ -36,7 +37,7 @@ public class UserController {
     @GetMapping("/edit/{id}")
     public String userEditForm(@PathVariable("id") Long id,
                                Model model) {
-        User user = userRepo.getOne(id);
+        User user = userService.findById(id);
         model.addAttribute("user", user);
         model.addAttribute("roles", Role.values());
         return "userEdit";
@@ -68,14 +69,14 @@ public class UserController {
             }
         }
 
-        userRepo.save(user);
+        userService.save(user);
 
         return "redirect:/users";
     }
 
     @GetMapping("/delete/{id}")
     public String userDelete(@PathVariable("id") Long id) {
-        userRepo.deleteById(id);
+        userService.deleteById(id);
         return "redirect:/users";
     }
 
