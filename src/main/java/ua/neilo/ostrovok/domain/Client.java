@@ -14,8 +14,14 @@ public class Client {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+
+    @Column(nullable = false)
     private String name;
+
+    @Column(nullable = false)
     private String birthday;
+
+    @Column(nullable = false)
     private String phone;
 
     @ManyToOne (cascade = CascadeType.ALL)

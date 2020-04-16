@@ -3,6 +3,7 @@ package ua.neilo.ostrovok.domain;
 import lombok.Data;
 
 import javax.persistence.*;
+import java.util.Date;
 
 @Entity
 @Data
@@ -11,7 +12,7 @@ public class News {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    private String imageUrl;
+    private String img;
 
     @Column(nullable = false)
     private String title;
@@ -24,4 +25,14 @@ public class News {
 
     @Column(nullable = false)
     private String date;
+
+    public News() {}
+
+    public News(String title, String description, String author, String date) {
+        this.title = title;
+        this.description = description;
+        this.author = author;
+        this.date = date;
+    }
+
 }

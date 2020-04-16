@@ -127,13 +127,34 @@ body {
 
 .article-title {
     margin: 10px 0;
+    text-align: center;
     color: #fff;
     font: bold 14pt sans-serif;
 }
 
+.article-title-link {
+    color: #fff;
+    text-decoration: none;
+    font: bold 14pt sans-serif;
+}
+
 .article-description {
+    margin: 10px 0;
     color: #fff;
     font: 12pt sans-serif;
+}
+
+.article-img {
+    width: 100%;
+}
+
+.article-footer {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    margin: 10px 0;
+
 
 }
 
@@ -195,6 +216,23 @@ body {
 .form-input {
     flex-basis: 60%;
 }
+
+.form-text-title {
+    flex-basis: 60%;
+    height: 75px;
+}
+
+.form-text {
+    flex-basis: 60%;
+    height: 150px;
+}
+
+
+.form-text {
+    flex-basis: 60%;
+    height: 150px;
+}
+
 .form-select {
     flex-basis: 60%;
 }
@@ -300,6 +338,8 @@ body {
     text-align: center;
     color: red;
 }
+
+
 
 
 
