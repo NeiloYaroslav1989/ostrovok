@@ -3,28 +3,30 @@ package ua.neilo.ostrovok.controller;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.security.access.prepost.PreAuthorize;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.annotation.AuthenticationPrincipal;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 import ua.neilo.ostrovok.domain.News;
+import ua.neilo.ostrovok.domain.User;
 import ua.neilo.ostrovok.service.NewsService;
+import ua.neilo.ostrovok.service.UserService;
 
-import javax.persistence.PostRemove;
 import java.io.File;
 import java.io.IOException;
-import java.text.DateFormat;
-import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
-import java.util.Locale;
 import java.util.UUID;
 
 @Controller
 @PreAuthorize("hasAuthority('ADMIN')")
 @RequestMapping("/news")
 public class NewsController {
+
     private final NewsService newsService;
 
     public NewsController(NewsService newsService) {
@@ -51,12 +53,14 @@ public class NewsController {
     @PostMapping("/add")
     public String newsAdd(@RequestParam("title") String title,
                           @RequestParam("description") String description,
-                          @RequestParam("author") String author,
                           @RequestParam("img") MultipartFile img
     ) throws IOException {
 
         SimpleDateFormat formatter = new SimpleDateFormat("dd.MM.yyyy");
         String currentDate = formatter.format(new Date());
+
+        Authentication auth = SecurityContextHolder.getContext().getAuthentication();
+        String author = auth.getName();
 
         News news = new News(title, description, author, currentDate);
 
@@ -90,13 +94,16 @@ public class NewsController {
     public String uploadNews(@RequestParam("id") Long id,
                              @RequestParam("title") String title,
                              @RequestParam("description") String description,
-                             @RequestParam("author") String author,
                              @RequestParam("img") MultipartFile img
     ) throws IOException {
         News news = newsService.findById(id);
 
         news.setTitle(title);
         news.setDescription(description);
+
+        Authentication auth = SecurityContextHolder.getContext().getAuthentication();
+        String author = auth.getName();
+
         news.setAuthor(author);
 
         SimpleDateFormat formatter = new SimpleDateFormat("dd.MM.yyyy");
@@ -116,17 +123,5 @@ public class NewsController {
 
         return "redirect:/news";
     }
-
-
-//    private Date getDate(String date) {
-//        DateFormat formatter = new SimpleDateFormat("yyyy.MM.dd");
-//        Date currentDate = new Date();
-//        try {
-//            currentDate = formatter.parse(date);
-//        } catch (ParseException e) {
-//            e.printStackTrace();
-//        }
-//        return currentDate;
-//    }
 
 }

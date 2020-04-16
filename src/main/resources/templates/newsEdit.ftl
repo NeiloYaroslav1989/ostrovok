@@ -14,12 +14,8 @@
             <textarea class="form-text" type="text" name="description" id="news-description">${news.description}</textarea>
         </div>
         <div class="form-item">
-            <label class="form-item-description" for="news-author">Автор:</label>
-            <input class="form-input" type="text" name="author" id="news-author" value="${news.author}">
-        </div>
-        <div class="form-item">
             <label class="form-item-description" for="news-img">Картинка:</label>
-            <input class="form-input" type="file" name="img" id="news-img" value="${news.img}">
+            <input class="form-input" type="file" name="img" id="news-img">
         </div>
         <div class="form-item-button">
             <input type="hidden" name="_csrf" value="${_csrf.token}">

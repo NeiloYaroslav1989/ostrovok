@@ -4,7 +4,7 @@
 <@common.page>
     <@form.logout></@form.logout>
     <div class="link-wrapper">
-        <a class="link" href="/users">Список преподавателей</a>
+        <a class="link" href="/users">Список пользователей</a>
     </div>
     <div class="link-wrapper">
         <a class="link" href="/groups">Список групп</a>

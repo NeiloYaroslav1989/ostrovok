@@ -2,7 +2,7 @@
 <#import "part/logout.ftl" as form>
 
 <@common.page>
-    <h1 class="page-title">Список преподавателей</h1>
+    <h1 class="page-title">Список пользователей</h1>
     <table class="table">
         <thead>
             <tr>

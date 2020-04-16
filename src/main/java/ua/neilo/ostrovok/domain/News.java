@@ -3,7 +3,6 @@ package ua.neilo.ostrovok.domain;
 import lombok.Data;
 
 import javax.persistence.*;
-import java.util.Date;
 
 @Entity
 @Data
@@ -20,7 +19,6 @@ public class News {
     @Column(nullable = false)
     private String description;
 
-    @Column(nullable = false)
     private String author;
 
     @Column(nullable = false)

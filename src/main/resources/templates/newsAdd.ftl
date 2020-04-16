@@ -13,10 +13,6 @@
             <textarea class="form-text" type="text" name="description" id="news-description" placeholder="Есть свободные места в группе ... "></textarea>
         </div>
         <div class="form-item">
-            <label class="form-item-description" for="news-author">Автор:</label>
-            <input class="form-input" type="text" name="author" id="news-author" placeholder="Грищенок А.А.">
-        </div>
-        <div class="form-item">
             <label class="form-item-description" for="news-img">Картинка:</label>
             <input class="form-input" type="file" name="img" id="news-img" placeholder="">
         </div>
