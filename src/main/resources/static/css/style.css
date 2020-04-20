@@ -302,11 +302,47 @@ body {
     margin: 0 5px;
 }
 
+.link-edit:hover {
+    background: url("../../static/img/btn-edit-hover.png") no-repeat;
+    display: flex;
+    background-size: contain;
+    width: 16px;
+    height: 16px;
+    margin: 0 5px;
+}
+
 .link-delete {
     display: flex;
     background: url("../../static/img/btn-delete.png") no-repeat;
     background-size: contain;
     width: 16px;
+    height: 16px;
+    margin: 0 5px;
+}
+
+.link-delete:hover {
+    background: url("../../static/img/btn-delete-hover.png") no-repeat;
+    display: flex;
+    background-size: contain;
+    width: 16px;
+    height: 16px;
+    margin: 0 5px;
+}
+
+.link-payment {
+    display: flex;
+    background: url("../../static/img/btn-payment.png") no-repeat;
+    background-size: contain;
+    width: 24px;
+    height: 16px;
+    margin: 0 5px;
+}
+
+.link-payment:hover {
+    background: url("../../static/img/btn-payment-hover.png") no-repeat;
+    display: flex;
+    background-size: contain;
+    width: 24px;
     height: 16px;
     margin: 0 5px;
 }

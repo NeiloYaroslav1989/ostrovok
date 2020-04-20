@@ -11,6 +11,7 @@
                 <th class="table-head">День рождения</th>
                 <th class="table-head"></th>
                 <th class="table-head"></th>
+                <th class="table-head"></th>
             </tr>
         </thead>
         <tbody class="table-body">
@@ -20,6 +21,7 @@
                     <td class="table-row">${client.getGroup().getTitle()}</td>
                     <td class="table-row">${client.phone}</td>
                     <td class="table-row">${client.birthday}</td>
+                    <td class="table-row"><a class="link-payment" href="/clients/paymentlist/${client.id}"></a></td>
                     <td class="table-row"><a class="link-edit" href="/clients/edit/${client.id}"></a></td>
                     <td class="table-row"><a class="link-delete" href="/clients/delete/${client.id}"></a></td>
                 </tr>

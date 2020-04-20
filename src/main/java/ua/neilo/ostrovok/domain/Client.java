@@ -5,6 +5,7 @@ import lombok.Getter;
 import lombok.Setter;
 
 import javax.persistence.*;
+import java.util.List;
 
 @Entity
 @Getter
@@ -27,5 +28,8 @@ public class Client {
     @ManyToOne (cascade = CascadeType.ALL)
     @JoinColumn (name = "group_id")
     private Group group;
+
+    @OneToMany (mappedBy = "client", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    private List<Payment> payments;
 
 }
