@@ -1,4 +1,5 @@
 <#import "part/common.ftl" as common>
+<#include "part/paymentPeriod.ftl" >
 
 <@common.page>
     <h1 class="page-title">Редактировать оплату клиента</h1>
@@ -9,34 +10,25 @@
             <div class="form-item">
                 <label class="form-item-description" for="paymentPeriode-year">Год:</label>
                 <select class="form-select" name="paymentPeriod-year" id="paymentPeriode-year">
-                    <option  value="2020">2020</option>
-                    <option  value="2021">2021</option>
-                    <option  value="2022">2022</option>
-                    <option  value="2023">2023</option>
-                    <option  value="2024">2024</option>
-                    <option  value="2025">2025</option>
-                    <option  value="2026">2026</option>
-                    <option  value="2027">2027</option>
-                    <option  value="2028">2028</option>
-                    <option  value="2029">2029</option>
-                    <option  value="2030">2030</option>
+                    <#list years as year>
+                        <#if year == payment.year>
+                            <option selected="selected"  value="${year}">${year}</option>
+                        <#else>
+                            <option value="${year}">${year}</option>
+                        </#if>
+                    </#list>
                 </select>
             </div>
             <div class="form-item">
                 <label class="form-item-description" for="paymentPeriode-month">Месяц:</label>
                 <select class="form-select" name="paymentPeriod-month" id="paymentPeriode-month">
-                    <option  value="Январь">Январь</option>
-                    <option  value="Февраль">Февраль</option>
-                    <option  value="Март">Март</option>
-                    <option  value="Апрель">Апрель</option>
-                    <option  value="Май">Май</option>
-                    <option  value="Июнь">Июнь</option>
-                    <option  value="Июль">Июль</option>
-                    <option  value="Август">Август</option>
-                    <option  value="Сентябрь">Сентябрь</option>
-                    <option  value="Окрябрь">Окрябрь</option>
-                    <option  value="Ноябрь">Ноябрь</option>
-                    <option  value="Декабрь">Декабрь</option>
+                    <#list months as month>
+                        <#if month == payment.month>
+                            <option selected="selected"  value="${month}">${month}</option>
+                        <#else>
+                            <option value="${month}">${month}</option>
+                        </#if>
+                    </#list>
                 </select>
             </div>
             <div class="form-item">

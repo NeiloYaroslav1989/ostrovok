@@ -45,12 +45,12 @@ public class PaymentController {
     public String paymentAdd(@RequestParam("paymentPeriod-year") String year,
                              @RequestParam("paymentPeriod-month") String month,
                              @RequestParam("payment") int payment,
-                             @RequestParam("clientId") Long clientId,
-                             Model model
+                             @RequestParam("clientId") Long clientId
     ) {
         Payment clientPayment = new Payment();
         clientPayment.setClient(clientService.findById(clientId));
-        clientPayment.setPaymentPeriod(month + " " + year);
+        clientPayment.setYear(year);
+        clientPayment.setMonth(month);
         clientPayment.setPayment(payment);
 
         paymentService.save(clientPayment);
@@ -81,7 +81,8 @@ public class PaymentController {
 
         Payment clientPayment = paymentService.findById(paymentId);
 
-        clientPayment.setPaymentPeriod(month + " " + year);
+        clientPayment.setYear(year);
+        clientPayment.setMonth(month);
         clientPayment.setPayment(payment);
 
         paymentService.save(clientPayment);

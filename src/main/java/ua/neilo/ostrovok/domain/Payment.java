@@ -14,7 +14,9 @@ public class Payment {
 
     private int payment;
 
-    private String paymentPeriod;
+    private String year;
+
+    private String month;
 
     @ManyToOne
     @JoinColumn(name = "client_id", nullable = false)

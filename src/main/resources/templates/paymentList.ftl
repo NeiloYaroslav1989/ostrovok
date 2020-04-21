@@ -5,7 +5,8 @@
     <table class="table">
         <thead>
             <tr>
-                <th class="table-head">Дата оплаты</th>
+                <th class="table-head">Год</th>
+                <th class="table-head">Месяц</th>
                 <th class="table-head">Сумма оплаты</th>
                 <th class="table-head"></th>
                 <th class="table-head"></th>
@@ -14,7 +15,8 @@
         <tbody class="table-body">
             <#list payments as payment>
                 <tr>
-                    <td class="table-row">${payment.paymentPeriod}</td>
+                    <td class="table-row">${payment.year}</td>
+                    <td class="table-row">${payment.month}</td>
                     <td class="table-row">${payment.payment}</td>
                     <td class="table-row"><a class="link-edit" href="/payment/edit/${client.id}/${payment.id}"></a></td>
                     <td class="table-row"><a class="link-delete" href="/payment/delete/${client.id}/${payment.id}"></a></td>
