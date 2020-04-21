@@ -16,8 +16,8 @@
                 <tr>
                     <td class="table-row">${payment.paymentPeriod}</td>
                     <td class="table-row">${payment.payment}</td>
-                    <td class="table-row"><a class="link-edit" href="/payment/edit/${payment.id}"></a></td>
-                    <td class="table-row"><a class="link-delete" href="/payment/delete/${payment.id}"></a></td>
+                    <td class="table-row"><a class="link-edit" href="/payment/edit/${client.id}/${payment.id}"></a></td>
+                    <td class="table-row"><a class="link-delete" href="/payment/delete/${client.id}/${payment.id}"></a></td>
                 </tr>
             </#list>
         </tbody>
