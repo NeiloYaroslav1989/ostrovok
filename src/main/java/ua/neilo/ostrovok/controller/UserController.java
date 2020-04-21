@@ -5,15 +5,13 @@ import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
+import ua.neilo.ostrovok.domain.Group;
 import ua.neilo.ostrovok.domain.Role;
 import ua.neilo.ostrovok.domain.User;
 import ua.neilo.ostrovok.repository.UserRepo;
 import ua.neilo.ostrovok.service.UserService;
 
-import java.util.Arrays;
-import java.util.List;
-import java.util.Map;
-import java.util.Set;
+import java.util.*;
 import java.util.stream.Collectors;
 
 @Controller
@@ -29,6 +27,7 @@ public class UserController {
     @GetMapping
     public String userList(Model model) {
         List<User> users = userService.findAll();
+        Collections.sort(users);
         model.addAttribute("users", users);
 
         return "userList";

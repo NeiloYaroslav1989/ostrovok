@@ -3,12 +3,6 @@
 
 <@common.page>
     <h1 class="page-title">Добавить оплату клиента</h1>
-<#--    <div class="message">-->
-<#--        <#if message??>-->
-<#--            ${message}-->
-<#--        <#else>-->
-<#--        </#if>-->
-<#--    </div>-->
 
     <div class="form-wrapper">
         <form class="form" action="/paymentAdd" method="post">
@@ -16,7 +10,7 @@
             <div class="form-item">
                 <label class="form-item-description" for="paymentPeriode-year">Год:</label>
                 <select class="form-select" name="paymentPeriod-year" id="paymentPeriode-year">
-                    <<#list years as year>
+                    <#list years as year>
                         <option value="${year}">${year}</option>
                     </#list>
                 </select>

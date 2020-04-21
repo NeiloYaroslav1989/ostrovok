@@ -8,7 +8,7 @@ import java.util.Set;
 @Entity
 @Table(name = "usr")
 @Data
-public class User {
+public class User implements Comparable<User> {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
@@ -40,4 +40,8 @@ public class User {
     private boolean active;
 
 
+    @Override
+    public int compareTo(User otherUser) {
+        return this.getUsername().compareTo(otherUser.getUsername());
+    }
 }

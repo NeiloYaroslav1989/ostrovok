@@ -12,7 +12,7 @@ import java.util.Set;
 @Table(name = "grp")
 @Getter
 @Setter
-public class Group {
+public class Group implements Comparable<Group> {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
@@ -34,5 +34,10 @@ public class Group {
 
     public void removeClientFromList(Client client) {
         clients.remove(client);
+    }
+
+    @Override
+    public int compareTo(Group otherGroup) {
+        return this.getTitle().compareTo(otherGroup.getTitle());
     }
 }

@@ -18,6 +18,7 @@ import ua.neilo.ostrovok.service.UserService;
 import java.io.File;
 import java.io.IOException;
 import java.text.SimpleDateFormat;
+import java.util.Collections;
 import java.util.Date;
 import java.util.List;
 import java.util.UUID;
@@ -39,6 +40,9 @@ public class NewsController {
     @GetMapping
     public String getNewsPage(Model model) {
         List<News> newsList = newsService.findAll();
+
+        Collections.reverse(newsList);
+
         model.addAttribute("newsList", newsList);
         return "newsList";
     }

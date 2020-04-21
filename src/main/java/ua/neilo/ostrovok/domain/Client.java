@@ -11,7 +11,7 @@ import java.util.List;
 @Getter
 @Setter
 @Table(name = "clients")
-public class Client {
+public class Client implements Comparable<Client> {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
@@ -32,4 +32,8 @@ public class Client {
     @OneToMany (mappedBy = "client", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     private List<Payment> payments;
 
+    @Override
+    public int compareTo(Client otherClient) {
+        return this.getName().compareTo(otherClient.getName());
+    }
 }

@@ -12,6 +12,8 @@ import ua.neilo.ostrovok.domain.Group;
 import ua.neilo.ostrovok.service.ClientService;
 import ua.neilo.ostrovok.service.GroupService;
 
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.List;
 
 @Controller
@@ -29,6 +31,7 @@ public class ClientController {
     @GetMapping("/clients")
     public String getClientList(Model model) {
         List<Client> clients = clientService.findAll();
+        Collections.sort(clients);
         model.addAttribute("clients", clients);
         return "clientList";
     }

@@ -3,10 +3,13 @@ package ua.neilo.ostrovok.domain;
 import lombok.Data;
 
 import javax.persistence.*;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 
 @Entity
 @Data
-public class News {
+public class News implements Comparable<News> {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
@@ -33,4 +36,17 @@ public class News {
         this.date = date;
     }
 
+    @Override
+    public int compareTo(News otherNews) {
+        SimpleDateFormat formatter = new SimpleDateFormat("dd.MM.yyyy");
+        Date thisDate = new Date();
+        Date otherDate = new Date();
+        try {
+            thisDate = formatter.parse(this.date);
+            otherDate = formatter.parse(otherNews.date);
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
+        return thisDate.compareTo(otherDate);
+    }
 }

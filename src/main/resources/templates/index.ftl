@@ -11,8 +11,8 @@
                 </#if>
                 <p class="article-description">${news.description}</p>
                 <div class="article-footer">
-                    <div class="article-date">${news.date}</div>
                     <div class="article-author">${news.author}</div>
+                    <div class="article-date">${news.date}</div>
                 </div>
             </article>
         </#list>

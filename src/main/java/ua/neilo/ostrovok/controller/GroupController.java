@@ -7,6 +7,8 @@ import org.springframework.web.bind.annotation.*;
 import ua.neilo.ostrovok.domain.Group;
 import ua.neilo.ostrovok.service.GroupService;
 
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.List;
 
 @Controller
@@ -22,6 +24,7 @@ public class GroupController {
     @GetMapping("/groups")
     public String getGroupList(Model model) {
         List<Group> groups = groupService.findAll();
+        Collections.sort(groups);
         model.addAttribute("groups", groups);
         return "groupList";
     }

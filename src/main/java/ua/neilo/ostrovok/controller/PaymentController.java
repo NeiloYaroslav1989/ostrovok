@@ -7,11 +7,13 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import ua.neilo.ostrovok.domain.Client;
+import ua.neilo.ostrovok.domain.Month;
 import ua.neilo.ostrovok.domain.Payment;
+import ua.neilo.ostrovok.domain.Year;
 import ua.neilo.ostrovok.service.ClientService;
 import ua.neilo.ostrovok.service.PaymentService;
 
-import java.util.List;
+import java.util.*;
 
 @Controller
 public class PaymentController {
@@ -29,6 +31,8 @@ public class PaymentController {
         Client client = clientService.findById(id);
         List<Payment> payments = paymentService.findPaymentsByClient_Id(id);
 
+        Collections.sort(payments);
+
         model.addAttribute("client", client);
         model.addAttribute("payments", payments);
 
@@ -38,6 +42,7 @@ public class PaymentController {
     @GetMapping("/paymentAdd/{id}")
     public String getPaymentAddPage(@PathVariable("id") Long id, Model model) {
         model.addAttribute("client", clientService.findById(id));
+
         return "paymentAdd";
     }
 
